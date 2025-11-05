@@ -1,8 +1,13 @@
-
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import '../mappers/video_mapper.dart';
+
+
+// rootBundle.loadString(...) carrega el fitxer JSON
+// json.decode(response) el converteix a un Map<String, dynamic>
+// data['videos'] es la llista dels vídeos
+// Cada vídeo passa per VideoMapper.fromJson()
 
 abstract class VideoLocalDataSource {
   Future<List<VideoMapper>> getVideos();

@@ -3,21 +3,36 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/video.dart';
 import '../../domain/usecases/get_videos.dart';
 
-class VideoProvider extends ChangeNotifier {
+class VideoProvider extends ChangeNotifier { // ChangeNotifier es pa que notifique als widgets quan hi han canvis
   final GetVideos getVideos;
-  List<Video> _videos = [];
-  bool _isLoading = false;
+  List<Video> _videos = []; //aço sera la llista del videos
+  bool _isLoading = false; // Este es pa saber cuan algo esta carregan false es que no esta
+
+  Video? _selectedVideo;
 
   VideoProvider({required this.getVideos});
 
-  List<Video> get videos => _videos;
+  List<Video> get videos => _videos; 
   bool get isLoading => _isLoading;
+  Video? get selectedVideo => _selectedVideo;
 
-  Future<void> fetchVideos() async {
+  void selectVideo(Video video) {  // per al VideoSelect, guarda un objecte video que sera el que mostrarem
+    _selectedVideo = video; 
+    notifyListeners();
+  }
+
+  Future<void> fetchVideos() async { // el fetchVideos() es el que carrega el json
+    print('Fetching videos...');
     _isLoading = true;
     notifyListeners();
-    _videos = await getVideos();
+    try {
+      _videos = await getVideos(); // Aci tens la dirrecció domain/usecases/get_videos
+      print('Videos fetch correctament: ${_videos.length} videos');
+    } catch (e) {
+      print('Error de fetch de video: $e');
+    }
     _isLoading = false;
-    notifyListeners();
+    notifyListeners(); // Sense este el CircularProgressIndicator (es diu spinner), no desapareix mai
+    print('Fi fetchVideos.');
   }
 }

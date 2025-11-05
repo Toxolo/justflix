@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-/// Logo
+/// Logo, Este es soles el logo de justflix
 class Logo extends StatelessWidget implements PreferredSizeWidget {
   const Logo({super.key});
 
@@ -82,17 +82,43 @@ class Logo extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-/// VideoSelect
+/// VideoSelect, Este es el del video seleccionat
 class VideoSelect extends StatelessWidget {
   const VideoSelect({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Image.network('https://picsum.photos/300/200');
+    return Consumer<VideoProvider>(
+      builder: (context, provider, child) {
+        final selectedVideo = provider.selectedVideo;
+
+        if (selectedVideo == null) {
+          return Image.network('https://picsum.photos/300/200');
+        }
+
+        return Column(
+          children: [
+            Image.network('https://picsum.photos/300/200'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('ID: ${selectedVideo.id}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text('Topic: ${selectedVideo.topic}'),
+                  Text('Description: ${selectedVideo.description}'),
+                  Text('Duration: ${selectedVideo.duration}s'),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
-/// ListaVideos
+/// ListaVideos, este es el llistat de videos per el json
 class ListaVideos extends StatelessWidget {
   const ListaVideos({super.key});
 
@@ -101,7 +127,10 @@ class ListaVideos extends StatelessWidget {
     return Consumer<VideoProvider>(
       builder: (context, provider, child) {
         if (provider.isLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator()); // Aço eu he trobat en un tutorial, es pa que cuan el isLoadig siga true,
+                                                                  // aparega el simbol de carrega. Important, si mall desapareix el simbol de 
+                                                                  // carrega, a lo millor es que no torna a fals, que ma pasat al principi
+                                                                  // Mira video_provider si tens curiositat
         }
 
         if (provider.videos.isEmpty) {
@@ -114,8 +143,11 @@ class ListaVideos extends StatelessWidget {
             final video = provider.videos[index];
             return ListTile(
               leading: Image.network('https://picsum.photos/100/50?random=${video.id}'),
-              title: Text(video.topic),
-              subtitle: Text(video.description),
+              title: Text(video.id),
+              subtitle: Text('${video.duration}s'),
+              onTap: () {
+                provider.selectVideo(video);
+              },
             );
           },
         );
