@@ -22,17 +22,17 @@ class VideoProvider extends ChangeNotifier { // ChangeNotifier es pa que notifiq
   }
 
   Future<void> fetchVideos() async { // el fetchVideos() es el que carrega el json
-    print('Fetching videos...');
+    print('Probar a carregar videos');
     _isLoading = true;
     notifyListeners();
     try {
       _videos = await getVideos(); // Aci tens la dirrecció domain/usecases/get_videos
-      print('Videos fetch correctament: ${_videos.length} videos');
+      print('Videos carregats correctament: ${_videos.length} videos');
     } catch (e) {
-      print('Error de fetch de video: $e');
+      print('Error de carrega de video: $e');
     }
     _isLoading = false;
     notifyListeners(); // Sense este el CircularProgressIndicator (es diu spinner), no desapareix mai
-    print('Fi fetchVideos.');
+    print('Sa acabat la carrega.');
   }
 }

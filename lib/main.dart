@@ -67,6 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// TO-DO *Gabriel
+// Arregla arquitectura clean
+
 /// Logo, Este es soles el logo de justflix
 class Logo extends StatelessWidget implements PreferredSizeWidget {
   const Logo({super.key});
