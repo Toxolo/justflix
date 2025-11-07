@@ -34,6 +34,181 @@
       "description": "Els entrenaments més intensos dels atletes olímpics.",
       "duration": 289.9,
       "thumbnail": "thumbnails/video005.jpg"
+    },
+    {
+      "id": "video006.mp4",
+      "topic": "Literatura",
+      "description": "Anàlisi dels principals corrents literaris del segle XX.",
+      "duration": 430.7,
+      "thumbnail": "thumbnails/video006.jpg"
+    },
+    {
+      "id": "video007.mp4",
+      "topic": "Art",
+      "description": "Els secrets de les pintures més famoses del Renaixement.",
+      "duration": 322.1,
+      "thumbnail": "thumbnails/video007.jpg"
+    },
+    {
+      "id": "video008.mp4",
+      "topic": "Cuina",
+      "description": "Com preparar receptes tradicionals valencianes amb ingredients locals.",
+      "duration": 275.0,
+      "thumbnail": "thumbnails/video008.jpg"
+    },
+    {
+      "id": "video009.mp4",
+      "topic": "Natura",
+      "description": "Documental sobre els ecosistemes mediterranis i la seva biodiversitat.",
+      "duration": 510.3,
+      "thumbnail": "thumbnails/video009.jpg"
+    },
+    {
+      "id": "video010.mp4",
+      "topic": "Astronomia",
+      "description": "Descobrint els exoplanetes i la recerca de vida fora del nostre sistema solar.",
+      "duration": 412.6,
+      "thumbnail": "thumbnails/video010.jpg"
+    },
+    {
+      "id": "video011.mp4",
+      "topic": "Cinema",
+      "description": "L'evolució del cinema europeu i la seva influència mundial.",
+      "duration": 355.4,
+      "thumbnail": "thumbnails/video011.jpg"
+    },
+    {
+      "id": "video012.mp4",
+      "topic": "Tecnologia",
+      "description": "Què és la computació quàntica i per què podria canviar-ho tot?",
+      "duration": 299.2,
+      "thumbnail": "thumbnails/video012.jpg"
+    },
+    {
+      "id": "video013.mp4",
+      "topic": "Història",
+      "description": "Les grans revolucions socials del segle XX i les seues conseqüències.",
+      "duration": 488.9,
+      "thumbnail": "thumbnails/video013.jpg"
+    },
+    {
+      "id": "video014.mp4",
+      "topic": "Ciència",
+      "description": "L'ADN i el descobriment de la doble hèlix: una història de recerca i perseverança.",
+      "duration": 265.7,
+      "thumbnail": "thumbnails/video014.jpg"
+    },
+    {
+      "id": "video015.mp4",
+      "topic": "Música",
+      "description": "Els orígens del rock i com va transformar la cultura juvenil.",
+      "duration": 390.0,
+      "thumbnail": "thumbnails/video015.jpg"
+    },
+    {
+      "id": "video016.mp4",
+      "topic": "Esport",
+      "description": "Com planificar un entrenament per millorar la resistència física.",
+      "duration": 280.8,
+      "thumbnail": "thumbnails/video016.jpg"
+    },
+    {
+      "id": "video017.mp4",
+      "topic": "Psicologia",
+      "description": "Els fonaments de la motivació i com aconseguir objectius personals.",
+      "duration": 305.5,
+      "thumbnail": "thumbnails/video017.jpg"
+    },
+    {
+      "id": "video018.mp4",
+      "topic": "Economia",
+      "description": "Conceptes bàsics d'economia per entendre el món actual.",
+      "duration": 340.1,
+      "thumbnail": "thumbnails/video018.jpg"
+    },
+    {
+      "id": "video019.mp4",
+      "topic": "Programació",
+      "description": "Introducció a JavaScript: variables, funcions i estructures bàsiques.",
+      "duration": 420.4,
+      "thumbnail": "thumbnails/video019.jpg"
+    },
+    {
+      "id": "video020.mp4",
+      "topic": "Programació",
+      "description": "Construint aplicacions web amb HTML, CSS i Web Components.",
+      "duration": 515.0,
+      "thumbnail": "thumbnails/video020.jpg"
+    },
+    {
+      "id": "video021.mp4",
+      "topic": "Natura",
+      "description": "Com els boscos regulen el clima i mantenen la vida a la Terra.",
+      "duration": 475.6,
+      "thumbnail": "thumbnails/video021.jpg"
+    },
+    {
+      "id": "video022.mp4",
+      "topic": "Art",
+      "description": "L'impressionisme i la revolució visual del segle XIX.",
+      "duration": 301.9,
+      "thumbnail": "thumbnails/video022.jpg"
+    },
+    {
+      "id": "video023.mp4",
+      "topic": "Literatura",
+      "description": "Les obres mestres de la literatura universal que has de llegir.",
+      "duration": 377.7,
+      "thumbnail": "thumbnails/video023.jpg"
+    },
+    {
+      "id": "video024.mp4",
+      "topic": "Filosofia",
+      "description": "Introducció al pensament de Plató i Aristòtil.",
+      "duration": 266.5,
+      "thumbnail": "thumbnails/video024.jpg"
+    },
+    {
+      "id": "video025.mp4",
+      "topic": "Salut",
+      "description": "Consells per mantenir una alimentació equilibrada i saludable.",
+      "duration": 292.3,
+      "thumbnail": "thumbnails/video025.jpg"
+    },
+    {
+      "id": "video026.mp4",
+      "topic": "Medi Ambient",
+      "description": "La importància del reciclatge i la reducció de residus.",
+      "duration": 335.9,
+      "thumbnail": "thumbnails/video026.jpg"
+    },
+    {
+      "id": "video027.mp4",
+      "topic": "Tecnologia",
+      "description": "Com funcionen els algoritmes dels motors de cerca.",
+      "duration": 287.1,
+      "thumbnail": "thumbnails/video027.jpg"
+    },
+    {
+      "id": "video028.mp4",
+      "topic": "Història",
+      "description": "La Guerra Freda: tensions, espies i la cursa espacial.",
+      "duration": 507.2,
+      "thumbnail": "thumbnails/video028.jpg"
+    },
+    {
+      "id": "video029.mp4",
+      "topic": "Música",
+      "description": "La música electrònica i la seva influència en la cultura contemporània.",
+      "duration": 365.4,
+      "thumbnail": "thumbnails/video029.jpg"
+    },
+    {
+      "id": "video030.mp4",
+      "topic": "Programació",
+      "description": "Aprén a usar APIs i a consumir dades en aplicacions modernes.",
+      "duration": 480.5,
+      "thumbnail": "thumbnails/video030.jpg"
     }
   ]
 }
