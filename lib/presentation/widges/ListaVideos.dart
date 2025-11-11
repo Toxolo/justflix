@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:justflix/presentation/providers/video_provider.dart';
+import 'package:justflix/utils/format_duration.dart';
 
 import 'package:provider/provider.dart';
 
@@ -29,9 +30,14 @@ class ListaVideos extends StatelessWidget {
           itemBuilder: (context, index) {
             final video = provider.videos[index];
             return ListTile(
-              leading: Image.network('https://picsum.photos/100/50?random=${video.id}'),
+              leading: Image.asset('assets/images/${video.thumbnail}',
+              width: 100,    // amplària en píxels
+              height: 50,   // alçària en píxels
+             // fit: BoxFit.cover, // com s’ajusta la imatge (cover, contain, fill, etc.)
+              ),
+              
               title: Text(video.id),
-              subtitle: Text('${video.duration}s'),
+              subtitle: Text('${formatDuration(video.duration)}m'),
               onTap: () {
                 provider.selectVideo(video);
               },

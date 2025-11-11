@@ -1,6 +1,8 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:justflix/presentation/providers/video_provider.dart';
+import 'package:justflix/utils/format_duration.dart';
 import 'package:provider/provider.dart';
 
 
@@ -17,23 +19,29 @@ class VideoSelect extends StatelessWidget {
         final selectedVideo = provider.selectedVideo;
 
         if (selectedVideo == null) {
-          return Image.network('https://picsum.photos/300/200');
+          //return Image.asset('assets/images/justflix.png', height: 40);
+          return Image.asset('assets/images/proba.png', height: 200, width: 400);
         }
+
 
         return Column(
           children: [
-            Image.network('https://picsum.photos/300/200'),
+            // Image.file(File(selectedVideo.thumbnail)),
+            Image.asset('assets/images/${selectedVideo.thumbnail}',
+             height: 200,
+             width: 400),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('ID: ${selectedVideo.id}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                 // Text('ID: ${selectedVideo.thumbnail}', style: const TextStyle(fontWeight: FontWeight.bold)),
                   Text('Topic: ${selectedVideo.topic}'),
                   Text('Description: ${selectedVideo.description}'),
-                  Text('Duration: ${selectedVideo.duration}s'),
+                  Text('Duration: ${formatDuration(selectedVideo.duration)}m'),
+                  Text('\n${selectedVideo.id}', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 ],
-              ),
+              )
             ),
           ],
         );

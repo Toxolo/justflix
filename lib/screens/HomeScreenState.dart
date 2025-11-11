@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:justflix/main.dart';
 import 'package:justflix/presentation/widges/ListaVideos.dart';
 import 'package:justflix/presentation/widges/VideoSelect.dart';
 import 'package:justflix/presentation/widges/logo.dart';
@@ -26,10 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
           VideoSelect(),
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Introducción a Flutter',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            // child: Text(
+            //   'Introducción a Flutter',
+            //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            // ),
           ),
           Expanded(
             child: ListaVideos(),
