@@ -1,20 +1,20 @@
-
 import 'package:flutter/material.dart';
 import 'package:justflix/screens/HomeScreenState.dart';
 import 'package:provider/provider.dart';
-import 'data/datasources/video_local_data_source.dart';
+import 'package:http/http.dart' as http;
+import 'data/datasources/video_remote_data_source.dart';
 import 'data/repositories/video_repository_impl.dart';
 import 'domain/usecases/get_videos.dart';
 import 'presentation/providers/video_provider.dart';
 
 
 void main() {
-  final videoLocalDataSource = VideoLocalDataSourceImpl();
-  final videoRepository = VideoRepositoryImpl(localDataSource: videoLocalDataSource);
+  final videoRemoteDataSource = VideoRemoteDataSourceImpl(client: http.Client());
+  final videoRepository = VideoRepositoryImpl(remoteDataSource: videoRemoteDataSource);
   final getVideos = GetVideos(videoRepository);
 
   runApp(
-    ChangeNotifierProvider(
+    ChangeNotifierProvider( //video_provider
       create: (_) => VideoProvider(getVideos: getVideos)..fetchVideos(),
       child: const MyApp(),
     ),
@@ -35,6 +35,48 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   final GetVideos getVideos;
+
+//   const MyApp({super.key, required this.getVideos});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // Pots cridar fetchVideos directament aquí si vols
+//     // Exemple: final videos = getVideos();
+
+//     return MaterialApp(
+//       title: 'JustFlix',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: const HomeScreen(), // Has de gestionar l'accés als vídeos dins de HomeScreen
+//     );
+//   }
+// }
+
+
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:justflix/screens/HomeScreenState.dart';
+// import 'data/datasources/video_local_data_source.dart';
+// import 'data/repositories/video_repository_impl.dart';
+// import 'domain/usecases/get_videos.dart';
+
+// void main() {
+//   // Inicialització de les dependències
+//   final videoLocalDataSource = VideoLocalDataSourceImpl();
+//   final videoRepository = VideoRepositoryImpl(localDataSource: videoLocalDataSource);
+//   final getVideos = GetVideos(videoRepository);
+
+//   // Executa l'app sense Provider
+//   runApp(MyApp(getVideos: getVideos));
+// }
+
+
 
 
 
@@ -60,3 +102,6 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
+
+
+

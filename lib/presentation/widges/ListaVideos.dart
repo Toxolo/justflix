@@ -30,14 +30,14 @@ class ListaVideos extends StatelessWidget {
           itemBuilder: (context, index) {
             final video = provider.videos[index];
             return ListTile(
-              leading: Image.asset('assets/images/${video.thumbnail}',
+              leading: Image.network(video.thumbnail,
               width: 100,    // amplària en píxels
               height: 50,   // alçària en píxels
              // fit: BoxFit.cover, // com s’ajusta la imatge (cover, contain, fill, etc.)
               ),
               
-              title: Text(video.id),
-              subtitle: Text('${formatDuration(video.duration)}m'),
+              title: Text(video.description),
+              subtitle: Text(video.topic),
               onTap: () {
                 provider.selectVideo(video);
               },

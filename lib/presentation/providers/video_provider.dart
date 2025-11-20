@@ -32,7 +32,7 @@ class VideoProvider extends ChangeNotifier { // ChangeNotifier es pa que notifiq
       print('Error de carrega de video: $e');
     }
     _isLoading = false;
-    notifyListeners(); // Sense este el CircularProgressIndicator (es diu spinner), no desapareix mai
+    notifyListeners();
     print('Sa acabat la carrega.');
   }
 }
