@@ -30,7 +30,7 @@ class ListaVideos extends StatelessWidget {
           itemBuilder: (context, index) {
             final video = provider.videos[index];
             return ListTile(
-              leading: Image.asset('assets/images/${video.thumbnail}',
+              leading: Image.network(video.thumbnail,
               width: 100,    // amplària en píxels
               height: 50,   // alçària en píxels
              // fit: BoxFit.cover, // com s’ajusta la imatge (cover, contain, fill, etc.)

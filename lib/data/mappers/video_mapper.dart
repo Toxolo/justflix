@@ -8,6 +8,7 @@ class VideoMapper extends Video {
     required super.description,
     required super.duration,
     required super.thumbnail,
+    required super.source,
   });
 
   factory VideoMapper.fromJson(Map<String, dynamic> json) {
@@ -17,6 +18,7 @@ class VideoMapper extends Video {
       description: json['description'],
       duration: json['duration'],
       thumbnail: json['thumbnail'],
+      source: json['source'],
     );
   }
 }

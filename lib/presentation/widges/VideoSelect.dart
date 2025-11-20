@@ -27,7 +27,7 @@ class VideoSelect extends StatelessWidget {
         return Column(
           children: [
             // Image.file(File(selectedVideo.thumbnail)),
-            Image.asset('assets/images/${selectedVideo.thumbnail}',
+            Image.network(selectedVideo.thumbnail,
              height: 200,
              width: 400),
             Padding(
@@ -38,6 +38,7 @@ class VideoSelect extends StatelessWidget {
                  // Text('ID: ${selectedVideo.thumbnail}', style: const TextStyle(fontWeight: FontWeight.bold)),
                   Text('Topic: ${selectedVideo.topic}'),
                   Text('Description: ${selectedVideo.description}'),
+                  Text('Source: ${selectedVideo.source}'),
                   Text('Duration: ${formatDuration(selectedVideo.duration)}m'),
                   Text('\n${selectedVideo.id}', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 ],
