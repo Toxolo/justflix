@@ -1,6 +1,6 @@
 
 import '../../domain/entities/video.dart';
-//Este es el mapper, asi no te puc dir molt, son els camps del json
+
 class VideoMapper extends Video {
   VideoMapper({
     required super.id,

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:justflix/presentation/providers/video_provider.dart';
+import 'package:justflix/presentation/widges/VideoPlayerHLS.dart';
 import 'package:justflix/utils/format_duration.dart';
 import 'package:provider/provider.dart';
 
@@ -27,9 +28,11 @@ class VideoSelect extends StatelessWidget {
         return Column(
           children: [
             // Image.file(File(selectedVideo.thumbnail)),
-            Image.network(selectedVideo.thumbnail,
-             height: 200,
-             width: 400),
+            VideoPlayerHLS(
+              url: selectedVideo.source,
+              height: 200,
+              width: 400,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
