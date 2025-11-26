@@ -26,7 +26,7 @@ class VideoProvider extends ChangeNotifier { // ChangeNotifier es pa que notifiq
     _isLoading = true;
     notifyListeners();
     try {
-      _videos = await getVideos(); // Aci tens la dirrecció domain/usecases/get_videos
+      _videos = await getVideos(); // Aci tens la direcció domain/usecases/get_videos
       print('Videos carregats correctament: ${_videos.length} videos');
     } catch (e) {
       print('Error de carrega de video: $e');

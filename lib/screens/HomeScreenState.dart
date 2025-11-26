@@ -25,10 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
           VideoSelect(),
           Padding(
             padding: EdgeInsets.all(8.0),
-            // child: Text(
-            //   'Introducción a Flutter',
-            //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            // ),
           ),
           Expanded(
             child: ListaVideos(),

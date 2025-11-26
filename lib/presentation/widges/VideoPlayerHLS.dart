@@ -29,10 +29,10 @@ class _VideoPlayerHLSState extends State<VideoPlayerHLS> {
   }
 
   @override
-  void didUpdateWidget(VideoPlayerHLS oldWidget) {
-    super.didUpdateWidget(oldWidget);
+  void didUpdateWidget(VideoPlayerHLS videoAnterior) {
+    super.didUpdateWidget(videoAnterior);
 
-    if (oldWidget.url != widget.url) {
+    if (videoAnterior.url != widget.url) {
       _initVideo(widget.url);
     }
   }
@@ -42,13 +42,13 @@ class _VideoPlayerHLSState extends State<VideoPlayerHLS> {
     await _controller?.dispose();
     _chewie?.dispose();
 
-    _controller = VideoPlayerController.networkUrl(Uri.parse(url));
+    _controller = VideoPlayerController.networkUrl(Uri.parse(url)); //Reprodueix el video
 
     await _controller!.initialize(); // esperem que carregue
 
-    _chewie = ChewieController(
-      videoPlayerController: _controller!,
-      autoPlay: true,
+    _chewie = ChewieController( //Aço són el botons del video
+      videoPlayerController: _controller!, //
+      autoPlay: false,
       looping: false,
       aspectRatio: widget.width / widget.height,
     );
@@ -76,7 +76,7 @@ class _VideoPlayerHLSState extends State<VideoPlayerHLS> {
     return SizedBox(
       height: widget.height,
       width: widget.width,
-      child: Chewie(controller: _chewie!),
+      child: Chewie(controller: _chewie!), //pantalla completa
     );
   }
 }

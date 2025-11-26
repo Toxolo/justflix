@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:justflix/presentation/providers/video_provider.dart';
 import 'package:justflix/presentation/widges/VideoPlayerHLS.dart';
