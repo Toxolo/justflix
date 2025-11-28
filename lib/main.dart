@@ -1,40 +1,85 @@
-
 import 'package:flutter/material.dart';
-import 'package:justflix/screens/HomeScreenState.dart';
+import 'package:justeats/screens/cart_screen.dart';
+import 'package:justeats/screens/pizza_list_screen.dart';
 import 'package:provider/provider.dart';
-import 'data/datasources/video_local_data_source.dart';
-import 'data/repositories/video_repository_impl.dart';
-import 'domain/usecases/get_videos.dart';
-import 'presentation/providers/video_provider.dart';
+import 'package:justeats/presentation/providers/cart_provider.dart';
 
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
-void main() {
-  final videoLocalDataSource = VideoLocalDataSourceImpl();
-  final videoRepository = VideoRepositoryImpl(localDataSource: videoLocalDataSource);
-  final getVideos = GetVideos(videoRepository);
-
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => VideoProvider(getVideos: getVideos)..fetchVideos(),
-      child: const MyApp(),
-    ),
-  );
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    PizzaListScreen(),
+    CartScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Widget _buildMenuButtons(CartProvider cartProvider, bool isVertical) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextButton(
+          onPressed: () => _onItemTapped(0),
+          child: Text(
+            'Pizzas',
+            style: TextStyle(
+              color: _selectedIndex == 0 ? Colors.blue : Colors.black,
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () => _onItemTapped(1),
+          child: Badge(
+            label: Text(cartProvider.items.length.toString()),
+            isLabelVisible: cartProvider.items.isNotEmpty,
+            child: Text(
+              'Carrito',
+              style: TextStyle(
+                color: _selectedIndex == 1 ? Colors.blue : Colors.black,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'JustFlix',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+    final cartProvider = context.watch<CartProvider>();
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+
+    return Scaffold(
+      appBar: isLandscape
+          ? null
+          : AppBar(
+              centerTitle: true,
+              title: _buildMenuButtons(cartProvider, true),
+            ),
+      body: isLandscape
+          ? Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: _buildMenuButtons(cartProvider, false),
+                ),
+                const VerticalDivider(thickness: 1),
+                Expanded(child: _widgetOptions[_selectedIndex]),
+              ],
+            )
+          : _widgetOptions[_selectedIndex],
     );
   }
 }
-
-
-
